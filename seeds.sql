@@ -1,0 +1,10 @@
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 1', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 2', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 3', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 4', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 5', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 6', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Harry Potter 7', 'books', 8.74, 50);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Joker', 'DVD', 20.00, 100);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('Once upon a time in hollywood', 'DVD', 20.00, 100);
+INSERT INTO `products` (`product_name`, `department_name`, `price`, `stock_quantity`) VALUES ('lighthouse', 'DVD', 20.00, 621);
