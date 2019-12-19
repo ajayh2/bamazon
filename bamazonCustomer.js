@@ -81,6 +81,29 @@ function itemList() {
                 (allproducts.quantity * purcheaseAmount[0].price).toFixed(2) +
                 " dollars."
             );
+
+            connection.query(
+              "UPDATE products SET stock_quantity=? WHERE id=?",
+              [purcheaseAmount[0].stock_quantity - quantity, itemID],
+
+              function(err, inventory) {
+                if (err) throw err;
+
+                itemList();
+              }
+            );
+          } else {
+            console.log(
+              "Sorry Item only has " +
+                purcheaseAmount[0].stock_quantity +
+                " " +
+                purcheaseAmount[0].product_name +
+                " in stock at this moment."
+            );
+            console.log(
+              "Choose another product or reduce your quantity."
+            );
+            itemList();
           }
         });
       });
