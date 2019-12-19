@@ -23,8 +23,8 @@ connection.connect(function(err) {
   itemList();
 });
 
-function itemsList(conn) {
-  connection.query("SLECT * FROM products", function(err, res) {
+function itemList() {
+  connection.query("SELECT * FROM products", function(err, res) {
     if (err) throw err;
     var items = new Table({
       head: ["ID", "Product Name", "Department Name", "Price", "Quantity"]
@@ -45,7 +45,7 @@ function itemsList(conn) {
       .prompt([
         {
           type: "number",
-          message: "what would you like(ID)?",
+          message: "What product would you like to buy (enter ID)?",
           name: "id"
         },
         {
@@ -58,7 +58,31 @@ function itemsList(conn) {
         var quantity = allproducts.quantity;
         var itemID = allproducts.id;
 
-        connection.query("SELECT * FROM products Where id+");
+        connection.query("SELECT * FROM products WHERE id=" + itemID, function(
+          err,
+          purcheaseAmount
+        ) {
+          if (err) throw err;
+
+          if (purcheaseAmount[0].stock_quantity - quantity >= 0) {
+            console.log(
+              " Quantity: " +
+                purcheaseAmount[0].stock_quantity +
+                " Order: " +
+                quantity
+            );
+
+            console.log(
+              "product : " + purcheaseAmount[0].product_name + " is available"
+            );
+
+            console.log(
+              "Thank You for your purchase. Your total is " +
+                (allproducts.quantity * purcheaseAmount[0].price).toFixed(2) +
+                " dollars."
+            );
+          }
+        });
       });
   });
 }
