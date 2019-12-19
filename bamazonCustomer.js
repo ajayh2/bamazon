@@ -28,10 +28,30 @@ connection.connect(function(err) {
 
 
 function itemsList(conn) {
-  conn.query("Select * from products;", (err, res) => {
-      if (err) console.log("Error is: ", err + "\n");
-      console.log("Here is what we currently have in stock: \n\n");
-      console.table(res);
-      displayChoices(conn);
-  });
-} 
+  connection.query("SLECT * FROM products", function(err, res) {
+    if(err) throw err;
+    var items = new Table({
+      head: [
+        "ID",
+        "Product Name",
+        "Department Name",
+        "Price",
+        "Quantity"
+      ]});
+
+      for (var i = 0; i < res.length; i++) {
+        items.push([
+          res[i].id,
+          res[i].product_name,
+          res[i].department_name,
+          res[i].price.toFixed(2),
+          res[i].stock_quantity
+        ]);
+      }
+      console.log(items.toString());
+
+
+
+  })
+
+}
